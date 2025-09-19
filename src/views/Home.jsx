@@ -10,6 +10,7 @@ import WhyChooseUs from '../components/WhyChooseUs';
 import FAQ from '../components/FAQ';
 import TrendingJobs from '../components/TrendingJobs';
 import CareerAssessment from '../components/CareerAssessment';
+import MotivationalQuotes from '../components/MotivationalQuotes';
 
 function Home() {
   return (
@@ -178,6 +179,12 @@ function Home() {
 
       {/* Career Assessment Section */}
       <CareerAssessment />
+
+      {/* White Background Section */}
+      <div className="bg-white py-20">
+        {/* Motivational Quotes Rotator */}
+        <MotivationalQuotes />
+      </div>
 
     </>
   );
