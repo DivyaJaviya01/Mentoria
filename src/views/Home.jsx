@@ -1,143 +1,186 @@
-import React from "react";
-import { BuildingLibraryIcon, AcademicCapIcon, BriefcaseIcon, GlobeAltIcon } from "@heroicons/react/24/outline";
+import React from 'react';
+import { 
+  BuildingLibraryIcon, 
+  AcademicCapIcon, 
+  BriefcaseIcon, 
+  GlobeAltIcon 
+} from '@heroicons/react/24/outline';
+import CareerPathDiagram from '../components/CareerPathDiagram';
+import WhyChooseUs from '../components/WhyChooseUs';
+import FAQ from '../components/FAQ';
+import TrendingJobs from '../components/TrendingJobs';
+import CareerAssessment from '../components/CareerAssessment';
 
-const Home = () => {
+function Home() {
   return (
     <>
-      <section className="relative min-h-screen pt-20 overflow-hidden">
-        {/* Gradient background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-indigo-900 to-slate-900" />
+      <div className="overflow-hidden">
+        {/* Shared premium background for hero and stats sections */}
+        <div className="relative min-h-screen overflow-hidden">
+          {/* Enhanced gradient background with mesh pattern */}
+          <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-indigo-950 to-slate-900" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_40%,rgba(59,130,246,0.15),transparent_70%)] opacity-80" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(168,85,247,0.15),transparent_70%)] opacity-60" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(6,182,212,0.1),transparent_70%)] opacity-70" />
+          
+          {/* Animated gradient orbs */}
+          <div className="pointer-events-none absolute -top-40 -left-40 h-96 w-96 rounded-full bg-gradient-to-r from-blue-600/30 to-cyan-500/20 blur-3xl animate-pulse" />
+          <div className="pointer-events-none absolute -bottom-40 -right-40 h-[32rem] w-[32rem] rounded-full bg-gradient-to-r from-purple-600/20 to-pink-500/15 blur-3xl animate-pulse" style={{animationDelay: '2s'}} />
+          <div className="pointer-events-none absolute top-1/4 left-1/3 h-80 w-80 rounded-full bg-gradient-to-r from-emerald-500/10 to-teal-400/10 blur-3xl animate-pulse" style={{animationDelay: '4s'}} />
 
-        {/* Decorative blurred blobs */}
-        <div className="pointer-events-none absolute -top-24 -left-24 h-80 w-80 rounded-full bg-blue-500/30 blur-3xl" />
-        <div className="pointer-events-none absolute -bottom-24 -right-24 h-96 w-96 rounded-full bg-fuchsia-500/20 blur-3xl" />
-        <div className="pointer-events-none absolute top-1/3 left-1/2 -translate-x-1/2 h-72 w-72 rounded-full bg-cyan-400/10 blur-3xl" />
+          {/* Floating geometric elements */}
+          <div className="pointer-events-none absolute top-20 right-20 w-4 h-4 bg-gradient-to-r from-blue-400 to-cyan-300 rounded-full animate-bounce opacity-60" style={{animationDelay: '1s'}} />
+          <div className="pointer-events-none absolute top-40 left-20 w-6 h-6 bg-gradient-to-r from-purple-400 to-pink-300 rounded-full animate-bounce opacity-40" style={{animationDelay: '3s'}} />
+          <div className="pointer-events-none absolute bottom-40 left-40 w-3 h-3 bg-gradient-to-r from-emerald-400 to-teal-300 rounded-full animate-bounce opacity-50" style={{animationDelay: '5s'}} />
 
-        <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-10">
-          <div className="grid md:grid-cols-2 gap-12 items-center py-16">
-            {/* Left: Copy */}
-            <div>
-              <span className="inline-flex items-center text-xs font-semibold tracking-wide uppercase text-cyan-300/90 bg-white/5 ring-1 ring-white/10 px-3 py-1 rounded-full mb-5">
-                AI-Powered Educational Guidance
-              </span>
-              <h1 className="text-white text-2xl md:text-3xl lg:text-4xl font-extrabold leading-tight drop-shadow-sm">
-              Your Future Isn't a Guessing Game. It's a Masterpiece
-              </h1>
-              <p className="mt-5 text-base md:text-lg text-slate-300/90 max-w-prose">
-                Navigate your journey with personalized recommendations, comprehensive college insights,
-                and curated scholarships tailored just for you. Built with modern AI to guide every step.
-              </p>
-
-              <div className="mt-8 flex flex-col sm:flex-row gap-4">
-                <button className="inline-flex items-center justify-center px-6 py-3 rounded-xl font-semibold text-white bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 shadow-lg shadow-blue-900/30 transition-all">
-                  Start Discovery Quiz →
-                </button>
-                <button className="inline-flex items-center justify-center px-6 py-3 rounded-xl font-semibold text-white/90 bg-white/10 hover:bg-white/15 ring-1 ring-white/15 backdrop-blur-md transition-all">
-                  Join Community
-                </button>
-              </div>
-
-              <div className="mt-6 flex items-center gap-6 text-sm text-slate-300/90">
-                <p>👥 10,000+ Students</p>
-                <p>⭐ 4.9/5 Rating</p>
-                <p>🛡️ Trusted Guidance</p>
-              </div>
-            </div>
-
-            {/* Right: Feature card */}
-            <div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl shadow-2xl p-8">
-              <h2 className="text-xl md:text-2xl font-bold text-white mb-2">Your Educational Journey</h2>
-              <p className="text-slate-300 mb-6">A simple roadmap to success</p>
-              <ul className="space-y-4">
-                {[
-                  { n: 1, title: "Take Assessment", sub: "Discover your strengths" },
-                  { n: 2, title: "Choose Stream", sub: "Based on your interests" },
-                  { n: 3, title: "Find Colleges", sub: "Explore best options" },
-                  { n: 4, title: "Secure Future", sub: "Achieve your goals" },
-                ].map((step) => (
-                  <li key={step.n} className="flex items-start gap-3">
-                    <span className="flex h-7 w-7 items-center justify-center rounded-full bg-white/10 text-white text-sm font-semibold ring-1 ring-white/15">
-                      {step.n}
+          <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-10">
+            <div className="flex flex-col lg:flex-row items-center justify-between min-h-screen py-20">
+              
+              {/* Left: Enhanced Copy Section */}
+              <div className="lg:w-1/2 lg:pr-16 text-center lg:text-left">
+                {/* Premium badge */}
+                <div className="inline-flex items-center mb-8">
+                  <span className="relative inline-flex items-center text-sm font-bold tracking-wider uppercase text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-blue-300 to-purple-300">
+                    <span className="absolute inset-0 bg-gradient-to-r from-cyan-400/20 to-purple-400/20 blur-xl"></span>
+                    <span className="relative px-6 py-2 bg-white/9 backdrop-blur-xl border border-white/20 rounded-full text-white">
+                      ✨ AI-Powered Career Guidance ✨
                     </span>
-                    <div>
-                      <p className="text-white font-semibold">{step.title}</p>
-                      <p className="text-slate-300 text-sm">{step.sub}</p>
+                  </span>
+                </div>
+                
+                {/* Main headline with gradient text */}
+                <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black leading-[1.1] mb-8">
+                  <span className="block text-transparent bg-clip-text bg-gradient-to-r from-white via-blue-100 to-cyan-200 drop-shadow-2xl">
+                    Your Future
+                  </span>
+                  <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-300 via-purple-300 to-pink-300 mt-2">
+                    Starts Here
+                  </span>
+                </h1>
+                
+                {/* Subtitle with better typography */}
+                <p className="text-xl md:text-2xl text-slate-300/90 leading-relaxed max-w-2xl mx-auto lg:mx-0 mb-10 font-light">
+                  Transform your career aspirations into reality with our 
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-blue-300 font-semibold"> AI-driven guidance platform.</span>
+                </p>
+
+                {/* Enhanced CTA buttons */}
+                <div className="flex flex-row gap-6 justify-center lg:justify-start mb-12">
+                  <button className="group relative inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white bg-gradient-to-r from-blue-600 via-purple-600 to-blue-700 rounded-2xl shadow-2xl shadow-blue-900/50 hover:shadow-blue-900/70 transform hover:scale-105 transition-all duration-300 overflow-hidden whitespace-nowrap">
+                    <span className="absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                    <span className="relative flex items-center gap-3">
+                      🚀 Start Your Journey
+                      <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                      </svg>
+                    </span>
+                  </button>
+                  
+                  <button className="group inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-white/90 bg-white/10 hover:bg-white/20 border border-white/20 hover:border-white/30 rounded-2xl backdrop-blur-xl transition-all duration-300 hover:scale-105 whitespace-nowrap">
+                    <span className="flex items-center gap-3">
+                      💬 Join Community
+                      <svg className="w-5 h-5 group-hover:rotate-12 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a2 2 0 01-2-2v-6a2 2 0 012-2h8z" />
+                      </svg>
+                    </span>
+                  </button>
+                </div>
+
+                {/* Enhanced stats with animations */}
+                <div className="grid grid-cols-3 gap-8 max-w-md mx-auto lg:mx-0">
+                  <div className="text-center lg:text-left group cursor-pointer">
+                    <div className="text-2xl md:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-blue-300 group-hover:scale-110 transition-transform">
+                      25K+
                     </div>
-                  </li>
-                ))}
-              </ul>
-              <div className="flex justify-between mt-6 font-semibold text-white/90">
-                <p>
-                  95%
-                  <span className="block text-sm font-normal text-slate-300">Success Rate</span>
-                </p>
-                <p>
-                  10K+
-                  <span className="block text-sm font-normal text-slate-300">Students Guided</span>
-                </p>
-                <p>
-                  120+
-                  <span className="block text-sm font-normal text-slate-300">Partner Colleges</span>
-                </p>
+                    <div className="text-sm text-slate-400 font-medium">Success Stories</div>
+                  </div>
+                  <div className="text-center lg:text-left group cursor-pointer">
+                    <div className="text-2xl md:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-300 to-pink-300 group-hover:scale-110 transition-transform">
+                      4.9★
+                    </div>
+                    <div className="text-sm text-slate-400 font-medium">User Rating</div>
+                  </div>
+                  <div className="text-center lg:text-left group cursor-pointer">
+                    <div className="text-2xl md:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-emerald-300 to-teal-300 group-hover:scale-110 transition-transform">
+                      99%
+                    </div>
+                    <div className="text-sm text-slate-400 font-medium">Satisfaction</div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Right: Premium Career Path Visualization */}
+              <div className="lg:w-1/2 mt-16 lg:mt-0 relative">
+                <CareerPathDiagram />
               </div>
             </div>
           </div>
 
-          {/* removed in-hero stats */}
-        </div>
-      </section>
-
-      {/* New white section with stats */}
-      <section className="bg-slate-50 py-16">
-        <div className="max-w-7xl mx-auto px-6 md:px-10">
-          <div className="bg-white/90 rounded-2xl border border-slate-200 shadow-xl overflow-hidden">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 divide-y sm:divide-y-0 sm:divide-x divide-slate-200">
+          {/* Key Stats Section continues with same background seamlessly */}
+          <div className="py-8 max-w-7xl mx-auto px-6 md:px-10">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
               {/* Government Colleges */}
-              <div className="p-6 flex items-center gap-4">
-                <div className="h-11 w-11 rounded-xl text-white flex items-center justify-center shadow-md bg-gradient-to-br from-blue-600 to-indigo-600">
-                  <BuildingLibraryIcon className="h-6 w-6" />
+              <div className="bg-white/5 backdrop-blur-xl rounded-2xl border border-white/10 p-4 group cursor-pointer hover:bg-white/10 transition-all duration-300 flex items-center gap-3">
+                <div className="h-12 w-12 rounded-full text-white flex items-center justify-center shadow-xl bg-gradient-to-br from-blue-600 to-indigo-600 group-hover:shadow-blue-500/50 group-hover:scale-110 transition-all duration-300 flex-shrink-0">
+                  <BuildingLibraryIcon className="h-5 w-5 drop-shadow-lg" />
                 </div>
-                <div>
-                  <div className="text-2xl font-extrabold text-slate-900 tracking-tight">500+</div>
-                  <div className="text-sm text-slate-600 mt-1">Government Colleges</div>
+                <div className="text-left">
+                  <div className="text-2xl md:text-3xl font-black text-white group-hover:text-cyan-300 transition-colors duration-300 drop-shadow-lg">500+</div>
+                  <div className="text-xs text-white font-medium drop-shadow-md">Government Colleges</div>
                 </div>
               </div>
+              
               {/* Scholarship Programs */}
-              <div className="p-6 flex items-center gap-4">
-                <div className="h-11 w-11 rounded-xl text-white flex items-center justify-center shadow-md bg-gradient-to-br from-emerald-600 to-teal-600">
-                  <AcademicCapIcon className="h-6 w-6" />
+              <div className="bg-white/5 backdrop-blur-xl rounded-2xl border border-white/10 p-4 group cursor-pointer hover:bg-white/10 transition-all duration-300 flex items-center gap-3">
+                <div className="h-12 w-12 rounded-full text-white flex items-center justify-center shadow-xl bg-gradient-to-br from-emerald-600 to-teal-600 group-hover:shadow-emerald-500/50 group-hover:scale-110 transition-all duration-300 flex-shrink-0">
+                  <AcademicCapIcon className="h-5 w-5 drop-shadow-lg" />
                 </div>
-                <div>
-                  <div className="text-2xl font-extrabold text-slate-900 tracking-tight">50+</div>
-                  <div className="text-sm text-slate-600 mt-1">Scholarship Programs</div>
+                <div className="text-left">
+                  <div className="text-2xl md:text-3xl font-black text-white group-hover:text-cyan-300 transition-colors duration-300 drop-shadow-lg">50+</div>
+                  <div className="text-xs text-white font-medium drop-shadow-md">Scholarship Programs</div>
                 </div>
               </div>
+              
               {/* Career Paths */}
-              <div className="p-6 flex items-center gap-4">
-                <div className="h-11 w-11 rounded-xl text-white flex items-center justify-center shadow-md bg-gradient-to-br from-violet-600 to-purple-600">
-                  <BriefcaseIcon className="h-6 w-6" />
+              <div className="bg-white/5 backdrop-blur-xl rounded-2xl border border-white/10 p-4 group cursor-pointer hover:bg-white/10 transition-all duration-300 flex items-center gap-3">
+                <div className="h-12 w-12 rounded-full text-white flex items-center justify-center shadow-xl bg-gradient-to-br from-violet-600 to-purple-600 group-hover:shadow-purple-500/50 group-hover:scale-110 transition-all duration-300 flex-shrink-0">
+                  <BriefcaseIcon className="h-5 w-5 drop-shadow-lg" />
                 </div>
-                <div>
-                  <div className="text-2xl font-extrabold text-slate-900 tracking-tight">100+</div>
-                  <div className="text-sm text-slate-600 mt-1">Career Paths</div>
+                <div className="text-left">
+                  <div className="text-2xl md:text-3xl font-black text-white group-hover:text-cyan-300 transition-colors duration-300 drop-shadow-lg">100+</div>
+                  <div className="text-xs text-white font-medium drop-shadow-md">Career Paths</div>
                 </div>
               </div>
+              
               {/* Languages Supported */}
-              <div className="p-6 flex items-center gap-4">
-                <div className="h-11 w-11 rounded-xl text-white flex items-center justify-center shadow-md bg-gradient-to-br from-amber-600 to-orange-600">
-                  <GlobeAltIcon className="h-6 w-6" />
+              <div className="bg-white/5 backdrop-blur-xl rounded-2xl border border-white/10 p-4 group cursor-pointer hover:bg-white/10 transition-all duration-300 flex items-center gap-3">
+                <div className="h-12 w-12 rounded-full text-white flex items-center justify-center shadow-xl bg-gradient-to-br from-amber-600 to-orange-600 group-hover:shadow-orange-500/50 group-hover:scale-110 transition-all duration-300 flex-shrink-0">
+                  <GlobeAltIcon className="h-5 w-5 drop-shadow-lg" />
                 </div>
-                <div>
-                  <div className="text-2xl font-extrabold text-slate-900 tracking-tight">10+</div>
-                  <div className="text-sm text-slate-600 mt-1">Languages Supported</div>
+                <div className="text-left">
+                  <div className="text-2xl md:text-3xl font-black text-white group-hover:text-cyan-300 transition-colors duration-300 drop-shadow-lg">10+</div>
+                  <div className="text-xs text-white font-medium drop-shadow-md">Languages Supported</div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </section>
+      </div>
+
+      {/* Why Choose Us Section */}
+      <WhyChooseUs />
+
+      {/* FAQ Section with hero background */}
+      <FAQ />
+
+      {/* Trending Jobs Section */}
+      <TrendingJobs />
+
+      {/* Career Assessment Section */}
+      <CareerAssessment />
+
     </>
   );
-};
+}
 
 export default Home;
