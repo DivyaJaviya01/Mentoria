@@ -57,10 +57,22 @@ function Navbar() {
           <div className="hidden md:flex items-center space-x-8 relative">
             {/* Home: label navigates, arrow toggles dropdown */}
             <div className="relative flex items-center">
-              <Link to="/" className="group flex items-center space-x-1 text-gray-200 hover:text-white transition-colors">
+              <button
+                onClick={() => {
+                  // If on home page, scroll to top
+                  if (window.location.pathname === '/') {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                  } else {
+                    // Navigate to home page
+                    window.location.href = '/';
+                  }
+                  setOpenMenu(null);
+                }}
+                className="group flex items-center space-x-1 text-gray-200 hover:text-white transition-colors"
+              >
                 <HomeIcon className="h-5 w-5" />
                 <span className="text-sm font-medium">Home</span>
-              </Link>
+              </button>
               <button
                 onClick={handleToggle("home")}
                 aria-expanded={openMenu === "home"}
@@ -80,14 +92,38 @@ function Navbar() {
                       <ChartBarIcon className="h-5 w-5 mr-3 text-sky-400" />
                       <span className="text-sm">Dashboard</span>
                     </Link>
-                    <Link to="/trending" className="flex items-center px-4 py-2 text-gray-200 hover:bg-white/5">
+                    <button 
+                      onClick={() => {
+                        const trendingSection = document.getElementById('trending-section');
+                        if (trendingSection) {
+                          trendingSection.scrollIntoView({ behavior: 'smooth' });
+                        } else {
+                          // If not on home page, navigate to home and then scroll
+                          window.location.href = '/#trending-section';
+                        }
+                        setOpenMenu(null);
+                      }}
+                      className="flex items-center px-4 py-2 text-gray-200 hover:bg-white/5 w-full text-left"
+                    >
                       <FireIcon className="h-5 w-5 mr-3 text-rose-400" />
                       <span className="text-sm">Trending</span>
-                    </Link>
-                    <Link to="/form" className="flex items-center px-4 py-2 text-gray-200 hover:bg-white/5">
+                    </button>
+                    <button 
+                      onClick={() => {
+                        const assessmentSection = document.getElementById('assessment-section');
+                        if (assessmentSection) {
+                          assessmentSection.scrollIntoView({ behavior: 'smooth' });
+                        } else {
+                          // If not on home page, navigate to home and then scroll
+                          window.location.href = '/#assessment-section';
+                        }
+                        setOpenMenu(null);
+                      }}
+                      className="flex items-center px-4 py-2 text-gray-200 hover:bg-white/5 w-full text-left"
+                    >
                       <ClipboardDocumentIcon className="h-5 w-5 mr-3 text-amber-400" />
                       <span className="text-sm">Form</span>
-                    </Link>
+                    </button>
                   </div>
                 </div>
               )}

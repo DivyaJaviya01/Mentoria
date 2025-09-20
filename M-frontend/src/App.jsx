@@ -7,6 +7,7 @@ import Home from "./views/Home";
 import About from "./views/About";
 import SignIn from "./views/SignIn";
 import Dashboard from "./views/Dashboard";
+import Trending from "./views/Trending";
 import Terms from "./views/Terms";
 import Privacy from "./views/Privacy";
 
@@ -26,6 +27,7 @@ function AppContent() {
         <Route path="/about" element={<About />} />
         <Route path="/signin" element={<SignIn />} />
         <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/trending" element={<Trending />} />
         <Route path="/terms" element={<Terms />} />
         <Route path="/privacy" element={<Privacy />} />
       </Routes>

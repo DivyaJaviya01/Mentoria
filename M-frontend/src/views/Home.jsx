@@ -175,10 +175,14 @@ function Home() {
       <FAQ />
 
       {/* Trending Jobs Section */}
-      <TrendingJobs />
+      <div id="trending-section">
+        <TrendingJobs />
+      </div>
 
       {/* Career Assessment Section */}
-      <CareerAssessment />
+      <div id="assessment-section">
+        <CareerAssessment />
+      </div>
 
       {/* White Background Section */}
       <div className="bg-white py-20">
