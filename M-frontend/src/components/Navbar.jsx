@@ -29,7 +29,7 @@ function Navbar() {
   };
 
   return (
-    <nav className="fixed top-0 inset-x-0 z-50 bg-gray-900/70 backdrop-blur-xl border-b border-white/10 shadow-lg">
+    <nav className="fixed top-0 inset-x-0 z-50 bg-gradient-to-br from-slate-950 via-indigo-950 to-slate-900 border-b border-white/10 shadow-xl shadow-slate-900/20">
       <div className="max-w-7xl mx-auto px-4">
         <div className="h-16 flex items-center justify-between text-white">
           <div className="flex items-center space-x-2">
@@ -57,7 +57,7 @@ function Navbar() {
                 />
               </button>
               {openMenu === "home" && (
-                <div id="menu-home" className="absolute top-10 left-1/2 -translate-x-1/2 w-56 bg-gray-900/80 backdrop-blur-xl border border-white/10 shadow-2xl rounded-xl overflow-hidden ring-1 ring-white/10">
+                <div id="menu-home" className="absolute top-10 left-1/2 -translate-x-1/2 w-56 bg-slate-950/95 backdrop-blur-xl border border-white/10 shadow-2xl rounded-xl overflow-hidden ring-1 ring-white/10">
                   <div className="py-2">
                     <Link to="/dashboard" className="flex items-center px-4 py-2 text-gray-200 hover:bg-white/5">
                       <ChartBarIcon className="h-5 w-5 mr-3 text-sky-400" />
@@ -95,7 +95,7 @@ function Navbar() {
                 />
               </button>
               {openMenu === "roadmap" && (
-                <div id="menu-roadmap" className="absolute top-10 left-1/2 -translate-x-1/2 w-64 bg-gray-900/80 backdrop-blur-xl border border-white/10 shadow-2xl rounded-xl overflow-hidden ring-1 ring-white/10">
+                <div id="menu-roadmap" className="absolute top-10 left-1/2 -translate-x-1/2 w-64 bg-slate-950/95 backdrop-blur-xl border border-white/10 shadow-2xl rounded-xl overflow-hidden ring-1 ring-white/10">
                   <div className="py-2">
                     <Link to="/colleges" className="flex items-center px-4 py-2 text-gray-200 hover:bg-white/5">
                       <BuildingLibraryIcon className="h-5 w-5 mr-3 text-blue-400" />
@@ -133,7 +133,7 @@ function Navbar() {
                 />
               </button>
               {openMenu === "ai" && (
-                <div id="menu-ai" className="absolute top-10 left-1/2 -translate-x-1/2 w-64 bg-gray-900/80 backdrop-blur-xl border border-white/10 shadow-2xl rounded-xl overflow-hidden ring-1 ring-white/10">
+                <div id="menu-ai" className="absolute top-10 left-1/2 -translate-x-1/2 w-64 bg-slate-950/95 backdrop-blur-xl border border-white/10 shadow-2xl rounded-xl overflow-hidden ring-1 ring-white/10">
                   <div className="py-2">
                     <Link to="/ai-assistance" className="flex items-center px-4 py-2 text-gray-200 hover:bg-white/5">
                       <CpuChipIcon className="h-5 w-5 mr-3 text-pink-400" />

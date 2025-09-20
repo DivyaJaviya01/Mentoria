@@ -232,108 +232,97 @@ const TrendingJobs = () => {
   ];
 
   return (
-    <section className="relative py-20 overflow-hidden">
-      {/* White line divider at the beginning */}
-      <div className="absolute top-0 left-0 right-0 flex justify-center z-20">
-        <div className="w-[90%] h-px bg-gradient-to-r from-transparent via-white/60 to-transparent"></div>
-      </div>
+    <section className="relative py-20 bg-gray-50">
+      {/* Clean minimal background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-white to-gray-100" />
       
-      {/* Premium gradient background with mesh pattern */}
-      <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-indigo-950 to-slate-900" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_40%,rgba(59,130,246,0.15),transparent_70%)] opacity-80" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(168,85,247,0.15),transparent_70%)] opacity-60" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(6,182,212,0.1),transparent_70%)] opacity-70" />
-      
-      {/* Animated gradient orbs */}
-      <div className="pointer-events-none absolute -top-40 -left-40 h-96 w-96 rounded-full bg-gradient-to-r from-blue-600/30 to-cyan-500/20 blur-3xl animate-pulse" />
-      <div className="pointer-events-none absolute -bottom-40 -right-40 h-[32rem] w-[32rem] rounded-full bg-gradient-to-r from-purple-600/20 to-pink-500/15 blur-3xl animate-pulse" style={{animationDelay: '2s'}} />
-      <div className="pointer-events-none absolute top-1/4 left-1/3 h-80 w-80 rounded-full bg-gradient-to-r from-emerald-500/10 to-teal-400/10 blur-3xl animate-pulse" style={{animationDelay: '4s'}} />
-
-      {/* Floating geometric elements */}
-      <div className="pointer-events-none absolute top-20 right-20 w-4 h-4 bg-gradient-to-r from-blue-400 to-cyan-300 rounded-full animate-bounce opacity-60" style={{animationDelay: '1s'}} />
-      <div className="pointer-events-none absolute top-40 left-20 w-6 h-6 bg-gradient-to-r from-purple-400 to-pink-300 rounded-full animate-bounce opacity-40" style={{animationDelay: '3s'}} />
-      <div className="pointer-events-none absolute bottom-40 left-40 w-3 h-3 bg-gradient-to-r from-emerald-400 to-teal-300 rounded-full animate-bounce opacity-50" style={{animationDelay: '5s'}} />
+      {/* Subtle accent elements */}
+      <div className="pointer-events-none absolute top-10 right-10 w-32 h-32 bg-blue-100 rounded-full blur-3xl opacity-30" />
+      <div className="pointer-events-none absolute bottom-10 left-10 w-40 h-40 bg-purple-100 rounded-full blur-3xl opacity-20" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-10">
         {/* Section Header */}
-        <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-6">
             Trending 
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-blue-300 to-purple-300"> Career Opportunities</span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600"> Career Opportunities</span>
           </h2>
-          <p className="text-xl text-slate-300/90 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Discover the most in-demand careers across Science, Commerce, Arts, and Vocational fields
           </p>
         </div>
 
         {/* Moving Cards Container */}
-        <div className="relative cards-container">
+        <div className="relative cards-container py-4">
           {/* Gradient overlays for smooth fade effect */}
-          <div className="absolute left-0 top-0 bottom-0 w-8 bg-gradient-to-r from-slate-950 to-transparent z-10 pointer-events-none"></div>
-          <div className="absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-slate-950 to-transparent z-10 pointer-events-none"></div>
+          <div className="absolute left-0 top-0 bottom-0 w-12 bg-gradient-to-r from-gray-50 to-transparent z-10 pointer-events-none"></div>
+          <div className="absolute right-0 top-0 bottom-0 w-12 bg-gradient-to-l from-gray-50 to-transparent z-10 pointer-events-none"></div>
           
           {/* Scrolling container with proper masking */}
-          <div className="flex gap-6 animate-scroll will-change-transform">
+          <div className="flex gap-6 animate-scroll will-change-transform px-4">
             {/* First set of cards */}
             {jobCategories.map((job) => (
               <div
                 key={job.id}
-                className="flex-shrink-0 w-80 group cursor-pointer"
+                className="flex-shrink-0 w-80 group cursor-pointer p-2"
               >
-                <div className="relative bg-white/5 backdrop-blur-2xl rounded-2xl border border-white/10 hover:border-white/20 transition-all duration-700 ease-out hover:scale-[1.02] hover:bg-white/8 p-6 h-full flex flex-col">
-                  {/* Subtle glow effect */}
-                  <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-white/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                <div className="relative bg-white rounded-3xl shadow-[0_4px_20px_-2px_rgba(0,0,0,0.1),0_2px_10px_-2px_rgba(0,0,0,0.04)] hover:shadow-[0_20px_40px_-4px_rgba(0,0,0,0.15),0_8px_20px_-4px_rgba(0,0,0,0.08)] transition-all duration-500 ease-out hover:scale-[1.02] hover:-translate-y-1 p-6 h-full flex flex-col border-t-4" style={{borderTopColor: `transparent`}}>
+                  {/* Gradient top border overlay */}
+                  <div className={`absolute -top-1 left-3 right-3 h-1 bg-gradient-to-r ${job.color} rounded-t-3xl`}></div>
+                  
+                  {/* Subtle inner glow effect */}
+                  <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-white/80 via-transparent to-transparent opacity-60 pointer-events-none"></div>
                   
                   {/* Content */}
-                  <div className="relative z-10 flex flex-col h-full">
+                  <div className="relative flex flex-col h-full">
                     
                     {/* Header Section */}
                     <div className="flex items-start justify-between mb-6">
                       <div className="flex items-center space-x-3">
-                        <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${job.color} flex items-center justify-center shadow-lg shadow-black/20`}>
-                          <span className="text-xl">{job.icon}</span>
+                        <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${job.color} flex items-center justify-center shadow-[0_8px_16px_-4px_rgba(0,0,0,0.2),0_4px_8px_-4px_rgba(0,0,0,0.1)]`}>
+                          <span className="text-lg">{job.icon}</span>
                         </div>
                         <div>
-                          <h3 className="text-lg font-semibold text-white mb-1 leading-tight">{job.title}</h3>
-                          <p className="text-xs text-white/60 font-medium uppercase tracking-wide">{job.category}</p>
+                          <h3 className="text-lg font-bold text-gray-800 mb-1 leading-tight">{job.title}</h3>
+                          <p className="text-xs text-gray-500 font-semibold uppercase tracking-wider">{job.category}</p>
                         </div>
                       </div>
                       
                       {/* Status Badge */}
-                      <div className={`px-2 py-1 rounded-full text-xs font-semibold ${
-                        job.demand === 'Very High' ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/30' :
-                        job.demand === 'High' ? 'bg-blue-500/20 text-blue-300 border border-blue-500/30' :
-                        'bg-amber-500/20 text-amber-300 border border-amber-500/30'
+                      <div className={`px-3 py-1.5 rounded-full text-xs font-bold whitespace-nowrap ${
+                        job.demand === 'Very High' ? 'bg-emerald-100 text-emerald-700 border border-emerald-200' :
+                        job.demand === 'High' ? 'bg-blue-100 text-blue-700 border border-blue-200' :
+                        'bg-amber-100 text-amber-700 border border-amber-200'
                       }`}>
                         {job.demand}
                       </div>
                     </div>
 
                     {/* Description */}
-                    <p className="text-white/70 text-sm leading-relaxed mb-6 font-light">
+                    <p className="text-gray-600 text-sm leading-relaxed mb-6 font-normal">
                       {job.description}
                     </p>
 
                     {/* Metrics Grid */}
                     <div className="grid grid-cols-2 gap-3 mb-6">
-                      <div className="bg-white/5 rounded-xl p-3 border border-white/10">
-                        <p className="text-xs text-white/50 uppercase tracking-wider mb-1">Salary Range</p>
-                        <p className="text-base font-bold text-white">{job.salary}</p>
+                      <div className="bg-gray-50 rounded-xl p-3 border border-gray-100 shadow-[0_2px_8px_-2px_rgba(0,0,0,0.05)]">
+                        <p className="text-xs text-gray-400 uppercase tracking-wider mb-1 font-semibold">Salary Range</p>
+                        <p className="text-sm font-bold text-gray-800">{job.salary}</p>
                       </div>
-                      <div className="bg-white/5 rounded-xl p-3 border border-white/10">
-                        <p className="text-xs text-white/50 uppercase tracking-wider mb-1">Growth</p>
-                        <p className="text-base font-bold text-emerald-300">+15%</p>
+                      <div className="bg-gray-50 rounded-xl p-3 border border-gray-100 shadow-[0_2px_8px_-2px_rgba(0,0,0,0.05)]">
+                        <p className="text-xs text-gray-400 uppercase tracking-wider mb-1 font-semibold">Growth</p>
+                        <p className="text-sm font-bold text-emerald-600">+15%</p>
                       </div>
                     </div>
 
                     {/* Skills Section */}
                     <div className="mb-6 flex-grow">
-                      <p className="text-xs text-white/50 uppercase tracking-wider mb-3">Required Skills</p>
+                      <p className="text-xs text-gray-400 uppercase tracking-wider mb-3 font-semibold">Required Skills</p>
                       <div className="flex flex-wrap gap-2">
                         {job.skills.map((skill, index) => (
                           <span
                             key={index}
-                            className="px-2 py-1 bg-white/10 text-white/80 text-xs rounded-lg font-medium border border-white/20 hover:bg-white/15 transition-colors duration-300"
+                            className="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded-lg font-semibold border border-gray-200 hover:bg-gray-200 hover:border-gray-300 transition-all duration-300"
                           >
                             {skill}
                           </span>
@@ -343,7 +332,7 @@ const TrendingJobs = () => {
 
                     {/* CTA Button */}
                     <div className="mt-auto">
-                      <button className="w-full bg-white/10 hover:bg-white/15 text-white py-3 px-4 rounded-xl font-semibold text-sm transition-all duration-300 border border-white/20 hover:border-white/30 group/btn">
+                      <button className={`w-full bg-gradient-to-r ${job.color} hover:shadow-[0_12px_24px_-4px_rgba(0,0,0,0.2),0_4px_12px_-4px_rgba(0,0,0,0.1)] text-white py-3 px-4 rounded-xl font-semibold text-sm transition-all duration-300 hover:scale-105 group/btn shadow-[0_4px_12px_-2px_rgba(0,0,0,0.15)]`}>
                         <span className="flex items-center justify-center space-x-2">
                           <span>View Position</span>
                           <svg className="w-4 h-4 transition-transform duration-300 group-hover/btn:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -361,62 +350,65 @@ const TrendingJobs = () => {
             {jobCategories.map((job) => (
               <div
                 key={`duplicate-${job.id}`}
-                className="flex-shrink-0 w-80 group cursor-pointer"
+                className="flex-shrink-0 w-80 group cursor-pointer p-2"
               >
-                <div className="relative bg-white/5 backdrop-blur-2xl rounded-2xl border border-white/10 hover:border-white/20 transition-all duration-700 ease-out hover:scale-[1.02] hover:bg-white/8 p-6 h-full flex flex-col">
-                  {/* Subtle glow effect */}
-                  <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-white/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                <div className="relative bg-white rounded-3xl shadow-[0_4px_20px_-2px_rgba(0,0,0,0.1),0_2px_10px_-2px_rgba(0,0,0,0.04)] hover:shadow-[0_20px_40px_-4px_rgba(0,0,0,0.15),0_8px_20px_-4px_rgba(0,0,0,0.08)] transition-all duration-500 ease-out hover:scale-[1.02] hover:-translate-y-1 p-6 h-full flex flex-col border-t-4" style={{borderTopColor: `transparent`}}>
+                  {/* Gradient top border overlay */}
+                  <div className={`absolute -top-1 left-3 right-3 h-1 bg-gradient-to-r ${job.color} rounded-t-3xl`}></div>
+                  
+                  {/* Subtle inner glow effect */}
+                  <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-white/80 via-transparent to-transparent opacity-60 pointer-events-none"></div>
                   
                   {/* Content */}
-                  <div className="relative z-10 flex flex-col h-full">
+                  <div className="relative flex flex-col h-full">
                     
                     {/* Header Section */}
                     <div className="flex items-start justify-between mb-6">
                       <div className="flex items-center space-x-3">
-                        <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${job.color} flex items-center justify-center shadow-lg shadow-black/20`}>
-                          <span className="text-xl">{job.icon}</span>
+                        <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${job.color} flex items-center justify-center shadow-[0_8px_16px_-4px_rgba(0,0,0,0.2),0_4px_8px_-4px_rgba(0,0,0,0.1)]`}>
+                          <span className="text-lg">{job.icon}</span>
                         </div>
                         <div>
-                          <h3 className="text-lg font-semibold text-white mb-1 leading-tight">{job.title}</h3>
-                          <p className="text-xs text-white/60 font-medium uppercase tracking-wide">{job.category}</p>
+                          <h3 className="text-lg font-bold text-gray-800 mb-1 leading-tight">{job.title}</h3>
+                          <p className="text-xs text-gray-500 font-semibold uppercase tracking-wider">{job.category}</p>
                         </div>
                       </div>
                       
                       {/* Status Badge */}
-                      <div className={`px-2 py-1 rounded-full text-xs font-semibold ${
-                        job.demand === 'Very High' ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/30' :
-                        job.demand === 'High' ? 'bg-blue-500/20 text-blue-300 border border-blue-500/30' :
-                        'bg-amber-500/20 text-amber-300 border border-amber-500/30'
+                      <div className={`px-3 py-1.5 rounded-full text-xs font-bold whitespace-nowrap ${
+                        job.demand === 'Very High' ? 'bg-emerald-100 text-emerald-700 border border-emerald-200' :
+                        job.demand === 'High' ? 'bg-blue-100 text-blue-700 border border-blue-200' :
+                        'bg-amber-100 text-amber-700 border border-amber-200'
                       }`}>
                         {job.demand}
                       </div>
                     </div>
 
                     {/* Description */}
-                    <p className="text-white/70 text-sm leading-relaxed mb-6 font-light">
+                    <p className="text-gray-600 text-sm leading-relaxed mb-6 font-normal">
                       {job.description}
                     </p>
 
                     {/* Metrics Grid */}
                     <div className="grid grid-cols-2 gap-3 mb-6">
-                      <div className="bg-white/5 rounded-xl p-3 border border-white/10">
-                        <p className="text-xs text-white/50 uppercase tracking-wider mb-1">Salary Range</p>
-                        <p className="text-base font-bold text-white">{job.salary}</p>
+                      <div className="bg-gray-50 rounded-xl p-3 border border-gray-100 shadow-[0_2px_8px_-2px_rgba(0,0,0,0.05)]">
+                        <p className="text-xs text-gray-400 uppercase tracking-wider mb-1 font-semibold">Salary Range</p>
+                        <p className="text-sm font-bold text-gray-800">{job.salary}</p>
                       </div>
-                      <div className="bg-white/5 rounded-xl p-3 border border-white/10">
-                        <p className="text-xs text-white/50 uppercase tracking-wider mb-1">Growth</p>
-                        <p className="text-base font-bold text-emerald-300">+15%</p>
+                      <div className="bg-gray-50 rounded-xl p-3 border border-gray-100 shadow-[0_2px_8px_-2px_rgba(0,0,0,0.05)]">
+                        <p className="text-xs text-gray-400 uppercase tracking-wider mb-1 font-semibold">Growth</p>
+                        <p className="text-sm font-bold text-emerald-600">+15%</p>
                       </div>
                     </div>
 
                     {/* Skills Section */}
                     <div className="mb-6 flex-grow">
-                      <p className="text-xs text-white/50 uppercase tracking-wider mb-3">Required Skills</p>
+                      <p className="text-xs text-gray-400 uppercase tracking-wider mb-3 font-semibold">Required Skills</p>
                       <div className="flex flex-wrap gap-2">
                         {job.skills.map((skill, index) => (
                           <span
                             key={index}
-                            className="px-2 py-1 bg-white/10 text-white/80 text-xs rounded-lg font-medium border border-white/20 hover:bg-white/15 transition-colors duration-300"
+                            className="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded-lg font-semibold border border-gray-200 hover:bg-gray-200 hover:border-gray-300 transition-all duration-300"
                           >
                             {skill}
                           </span>
@@ -426,7 +418,7 @@ const TrendingJobs = () => {
 
                     {/* CTA Button */}
                     <div className="mt-auto">
-                      <button className="w-full bg-white/10 hover:bg-white/15 text-white py-3 px-4 rounded-xl font-semibold text-sm transition-all duration-300 border border-white/20 hover:border-white/30 group/btn">
+                      <button className={`w-full bg-gradient-to-r ${job.color} hover:shadow-[0_12px_24px_-4px_rgba(0,0,0,0.2),0_4px_12px_-4px_rgba(0,0,0,0.1)] text-white py-3 px-4 rounded-xl font-semibold text-sm transition-all duration-300 hover:scale-105 group/btn shadow-[0_4px_12px_-2px_rgba(0,0,0,0.15)]`}>
                         <span className="flex items-center justify-center space-x-2">
                           <span>View Position</span>
                           <svg className="w-4 h-4 transition-transform duration-300 group-hover/btn:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -443,12 +435,12 @@ const TrendingJobs = () => {
         </div>
 
         {/* Bottom CTA */}
-        <div className="text-center mt-12">
-          <button className="group relative inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-600 rounded-2xl shadow-2xl shadow-blue-900/50 hover:shadow-blue-900/70 transform hover:scale-105 transition-all duration-300 overflow-hidden">
-            <span className="absolute inset-0 bg-gradient-to-r from-cyan-400 to-purple-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
-            <span className="relative flex items-center gap-3">
+        <div className="text-center mt-16">
+          <button className="group relative inline-flex items-center justify-center px-10 py-5 text-xl font-bold text-white bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 rounded-3xl shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-300 overflow-hidden">
+            <span className="absolute inset-0 bg-gradient-to-r from-blue-500 to-indigo-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+            <span className="relative flex items-center gap-4">
               🔍 Explore All Career Paths
-              <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-6 h-6 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
               </svg>
             </span>
