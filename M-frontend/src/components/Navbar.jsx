@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import {
   HomeIcon,
   ChartBarIcon,
@@ -18,6 +18,23 @@ import {
 
 function Navbar() {
   const [openMenu, setOpenMenu] = useState(null);
+  const [user, setUser] = useState(null);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    // Check if user is authenticated
+    const userData = localStorage.getItem('user');
+    if (userData) {
+      setUser(JSON.parse(userData));
+    }
+  }, []);
+
+  const handleLogout = () => {
+    localStorage.removeItem('user');
+    localStorage.removeItem('rememberedEmail');
+    setUser(null);
+    navigate('/');
+  };
 
   const toggleMenu = (menu) => {
     setOpenMenu(openMenu === menu ? null : menu);
@@ -153,14 +170,46 @@ function Navbar() {
             </div>
           </div>
 
-          <div className="flex items-center">
-            <Link
-              to="/signin"
-              className="inline-flex items-center space-x-2 text-sm font-medium text-white bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 active:scale-[0.98] px-4 py-2 rounded-lg shadow-md shadow-blue-900/30 transition-all"
-            >
-              <ArrowRightOnRectangleIcon className="h-5 w-5" />
-              <span>Sign In</span>
-            </Link>
+          <div className="flex items-center space-x-4">
+            {user ? (
+              <div className="flex items-center space-x-4">
+                <Link
+                  to="/dashboard"
+                  className="text-gray-200 hover:text-white transition-colors text-sm font-medium"
+                >
+                  Dashboard
+                </Link>
+                <div className="flex items-center space-x-3">
+                  <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center">
+                    {user.avatar ? (
+                      <img src={user.avatar} alt={user.name} className="w-full h-full rounded-full" />
+                    ) : (
+                      <span className="text-white text-sm font-semibold">
+                        {user.name.charAt(0).toUpperCase()}
+                      </span>
+                    )}
+                  </div>
+                  <span className="text-white text-sm font-medium hidden md:block">
+                    {user.name}
+                  </span>
+                  <button
+                    onClick={handleLogout}
+                    className="text-gray-300 hover:text-white transition-colors"
+                    title="Logout"
+                  >
+                    <ArrowRightOnRectangleIcon className="h-5 w-5" />
+                  </button>
+                </div>
+              </div>
+            ) : (
+              <Link
+                to="/signin"
+                className="inline-flex items-center space-x-2 text-sm font-medium text-white bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 active:scale-[0.98] px-4 py-2 rounded-lg shadow-md shadow-blue-900/30 transition-all"
+              >
+                <ArrowRightOnRectangleIcon className="h-5 w-5" />
+                <span>Sign In</span>
+              </Link>
+            )}
           </div>
         </div>
       </div>

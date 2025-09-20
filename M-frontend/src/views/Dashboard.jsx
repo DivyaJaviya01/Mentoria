@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { 
   ChartBarIcon, 
   AcademicCapIcon,
@@ -7,10 +8,59 @@ import {
   UserCircleIcon,
   ArrowRightIcon,
   BookOpenIcon,
-  BriefcaseIcon
+  BriefcaseIcon,
+  ArrowLeftOnRectangleIcon
 } from '@heroicons/react/24/outline';
 
-const Dashboard = ({ user, assessmentData }) => {
+const Dashboard = () => {
+  const navigate = useNavigate();
+  const [user, setUser] = useState(null);
+  const [assessmentData, setAssessmentData] = useState(null);
+
+  useEffect(() => {
+    // Check if user is authenticated
+    const userData = localStorage.getItem('user');
+    if (!userData) {
+      navigate('/signin');
+      return;
+    }
+
+    const parsedUser = JSON.parse(userData);
+    setUser(parsedUser);
+
+    // Get or create default assessment data
+    const savedAssessment = localStorage.getItem('assessmentData');
+    if (savedAssessment) {
+      setAssessmentData(JSON.parse(savedAssessment));
+    } else {
+      // Default assessment data for demonstration
+      const defaultAssessment = {
+        currentClass: '12th Grade',
+        subjects: ['Mathematics', 'Physics', 'Chemistry', 'Computer Science', 'English'],
+        interests: ['Technology & Programming', 'Problem Solving', 'Innovation', 'Science & Research', 'Digital Design'],
+        skills: ['Analytical Thinking', 'Programming', 'Problem Solving', 'Communication', 'Creativity']
+      };
+      setAssessmentData(defaultAssessment);
+      localStorage.setItem('assessmentData', JSON.stringify(defaultAssessment));
+    }
+  }, [navigate]);
+
+  const handleLogout = () => {
+    localStorage.removeItem('user');
+    localStorage.removeItem('rememberedEmail');
+    navigate('/signin');
+  };
+
+  if (!user || !assessmentData) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-slate-950 via-indigo-950 to-slate-900 flex items-center justify-center">
+        <div className="text-white text-center">
+          <div className="w-16 h-16 border-4 border-blue-500/30 border-t-blue-500 rounded-full animate-spin mx-auto mb-4"></div>
+          <p>Loading your dashboard...</p>
+        </div>
+      </div>
+    );
+  }
   // Generate recommendations based on assessment data
   const generateRecommendations = () => {
     const { subjects, interests, skills, currentClass } = assessmentData;
@@ -78,15 +128,26 @@ const Dashboard = ({ user, assessmentData }) => {
         <div className="text-center mb-12">
           <div className="flex items-center justify-center mb-6">
             <div className="w-20 h-20 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center shadow-lg">
-              <UserCircleIcon className="w-12 h-12 text-white" />
+              {user.avatar ? (
+                <img src={user.avatar} alt={user.name} className="w-full h-full rounded-full" />
+              ) : (
+                <UserCircleIcon className="w-12 h-12 text-white" />
+              )}
             </div>
           </div>
           <h1 className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-white via-blue-100 to-cyan-200 mb-4">
             Welcome, {user.name}!
           </h1>
-          <p className="text-xl text-slate-200 max-w-2xl mx-auto">
+          <p className="text-xl text-slate-200 max-w-2xl mx-auto mb-6">
             Your personalized career assessment results are ready. Here are our recommendations based on your responses.
           </p>
+          <button
+            onClick={handleLogout}
+            className="inline-flex items-center space-x-2 px-4 py-2 bg-white/10 hover:bg-white/20 border border-white/20 text-white rounded-lg transition-all duration-200"
+          >
+            <ArrowLeftOnRectangleIcon className="h-5 w-5" />
+            <span>Logout</span>
+          </button>
         </div>
 
         {/* Assessment Summary */}
