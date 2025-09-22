@@ -14,7 +14,9 @@
   "license": "ISC",
   "dependencies": {
     "@heroicons/react": "^2.2.0",
+    "axios": "^1.12.2",
     "react": "^19.1.1",
+    "react-chatbot-kit": "^2.2.2",
     "react-dom": "^19.1.1",
     "react-router-dom": "^7.9.1"
   },

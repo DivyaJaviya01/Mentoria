@@ -129,12 +129,12 @@ function Navbar() {
               )}
             </div>
 
-            {/* Roadmap: only arrow toggles */}
+            {/* Roadmap: label navigates, arrow toggles dropdown */}
             <div className="relative flex items-center">
-              <div className="group flex items-center space-x-1 text-gray-200">
+              <Link to="/roadmap" className="group flex items-center space-x-1 text-gray-200 hover:text-white transition-colors">
                 <MapIcon className="h-5 w-5" />
                 <span className="text-sm font-medium">Roadmap</span>
-              </div>
+              </Link>
               <button
                 onClick={handleToggle("roadmap")}
                 aria-expanded={openMenu === "roadmap"}
@@ -150,6 +150,10 @@ function Navbar() {
               {openMenu === "roadmap" && (
                 <div id="menu-roadmap" className="absolute top-10 left-1/2 -translate-x-1/2 w-64 bg-slate-950/95 backdrop-blur-xl border border-white/10 shadow-2xl rounded-xl overflow-hidden ring-1 ring-white/10">
                   <div className="py-2">
+                    <Link to="/roadmap" className="flex items-center px-4 py-2 text-gray-200 hover:bg-white/5">
+                      <MapIcon className="h-5 w-5 mr-3 text-purple-400" />
+                      <span className="text-sm">Career Fields</span>
+                    </Link>
                     <Link to="/colleges" className="flex items-center px-4 py-2 text-gray-200 hover:bg-white/5">
                       <BuildingLibraryIcon className="h-5 w-5 mr-3 text-blue-400" />
                       <span className="text-sm">Colleges</span>
@@ -167,37 +171,52 @@ function Navbar() {
               )}
             </div>
 
-            {/* Talk with AI: only arrow toggles */}
+            {/* Talk with AI: label navigates to page, arrow toggles dropdown */}
             <div className="relative flex items-center">
-              <div className="group flex items-center space-x-1 text-gray-200">
+              <Link
+                to="/talk-with-ai"
+                className="group flex items-center space-x-1 text-gray-200 hover:text-white transition-colors"
+              >
                 <ChatBubbleLeftRightIcon className="h-5 w-5" />
                 <span className="text-sm font-medium">Talk with AI</span>
-              </div>
+              </Link>
               <button
-                onClick={handleToggle("ai")}
-                aria-expanded={openMenu === "ai"}
-                aria-controls="menu-ai"
+                onClick={handleToggle("ai-assist")}
+                aria-expanded={openMenu === "ai-assist"}
+                aria-controls="menu-ai-assist"
                 className="ml-1 p-1 rounded hover:bg-white/10 transition-colors"
               >
                 <ChevronDownIcon
                   className={`h-4 w-4 transition-transform duration-200 ${
-                    openMenu === "ai" ? "rotate-180" : "rotate-0"
+                    openMenu === "ai-assist" ? "rotate-180" : "rotate-0"
                   }`}
                 />
               </button>
-              {openMenu === "ai" && (
-                <div id="menu-ai" className="absolute top-10 left-1/2 -translate-x-1/2 w-64 bg-slate-950/95 backdrop-blur-xl border border-white/10 shadow-2xl rounded-xl overflow-hidden ring-1 ring-white/10">
+              {openMenu === "ai-assist" && (
+                <div id="menu-ai-assist" className="absolute top-10 left-1/2 -translate-x-1/2 w-56 bg-slate-950/95 backdrop-blur-xl border border-white/10 shadow-2xl rounded-xl overflow-hidden ring-1 ring-white/10">
                   <div className="py-2">
-                    <Link to="/ai-assistance" className="flex items-center px-4 py-2 text-gray-200 hover:bg-white/5">
-                      <CpuChipIcon className="h-5 w-5 mr-3 text-pink-400" />
-                      <span className="text-sm">AI Assistance</span>
+                    <Link 
+                      to="/ai-chat"
+                      className="flex items-center px-4 py-2 text-gray-200 hover:bg-white/5"
+                      onClick={() => setOpenMenu(null)}
+                    >
+                      <ChatBubbleLeftRightIcon className="h-5 w-5 mr-3 text-blue-400" />
+                      <span className="text-sm">AI Chat</span>
                     </Link>
-                    <Link to="/live-chat" className="flex items-center px-4 py-2 text-gray-200 hover:bg-white/5">
-                      <ChatBubbleLeftRightIcon className="h-5 w-5 mr-3 text-amber-400" />
+                    <Link 
+                      to="/talk-with-ai#live-chat"
+                      className="flex items-center px-4 py-2 text-gray-200 hover:bg-white/5"
+                      onClick={() => setOpenMenu(null)}
+                    >
+                      <CpuChipIcon className="h-5 w-5 mr-3 text-purple-400" />
                       <span className="text-sm">Live Chat</span>
                     </Link>
-                    <Link to="/faq" className="flex items-center px-4 py-2 text-gray-200 hover:bg-white/5">
-                      <QuestionMarkCircleIcon className="h-5 w-5 mr-3 text-cyan-400" />
+                    <Link 
+                      to="/talk-with-ai#faq"
+                      className="flex items-center px-4 py-2 text-gray-200 hover:bg-white/5"
+                      onClick={() => setOpenMenu(null)}
+                    >
+                      <QuestionMarkCircleIcon className="h-5 w-5 mr-3 text-emerald-400" />
                       <span className="text-sm">FAQ</span>
                     </Link>
                   </div>

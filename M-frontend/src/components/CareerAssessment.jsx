@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { 
   AcademicCapIcon, 
   LightBulbIcon, 
@@ -11,6 +12,7 @@ import AuthModal from './AuthModal';
 import Dashboard from '../views/Dashboard';
 
 const CareerAssessment = () => {
+  const navigate = useNavigate();
   const [showForm, setShowForm] = useState(false);
   const [showAuthModal, setShowAuthModal] = useState(false);
   const [showDashboard, setShowDashboard] = useState(false);
@@ -64,9 +66,8 @@ const CareerAssessment = () => {
       setShowForm(false);
       setShowDashboard(true);
     } else {
-      // Show authentication modal first
-      setShowForm(false);
-      setShowAuthModal(true);
+      // Redirect to sign-in page
+      navigate('/signin');
     }
   };
 

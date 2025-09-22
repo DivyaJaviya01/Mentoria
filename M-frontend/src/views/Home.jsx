@@ -11,6 +11,7 @@ import FAQ from '../components/FAQ';
 import TrendingJobs from '../components/TrendingJobs';
 import CareerAssessment from '../components/CareerAssessment';
 import MotivationalQuotes from '../components/MotivationalQuotes';
+import HeroImage from '../assets/Hero-section.jpg'; // Import the local image
 
 function Home() {
   return (
@@ -110,16 +111,41 @@ function Home() {
                 </div>
               </div>
 
-              {/* Right: Premium Career Path Visualization */}
-              <div className="lg:w-1/2 mt-16 lg:mt-0 relative">
-                <CareerPathDiagram />
+              {/* Right: Career Counselling Illustration */}
+              <div className="lg:w-1/2 mt-16 lg:mt-0 relative flex justify-center">
+                <div class="w-full h-96 flex items-center justify-center">
+                  {/* Image container with transparent background */}
+                  <div class="relative p-6 rounded-2xl bg-white/10 backdrop-blur-sm border border-white/20">
+                    <img 
+                      src={HeroImage} 
+                      alt="Career guidance illustration showing a businessman standing at road direction signs, making a decision for career path"
+                      class="max-w-full max-h-full object-contain pointer-events-none select-none rounded-lg"
+                      draggable="false"
+                      onContextMenu={(e) => e.preventDefault()}
+                    />
+                    
+                    {/* Bold multi-color gradient sphere at top left */}
+                    <div class="absolute -top-6 -left-6 w-24 h-24 rounded-full z-20">
+                      <div class="absolute inset-0 rounded-full bg-gradient-to-r from-blue-500 via-purple-600 to-pink-600 blur-lg"></div>
+                      <div class="absolute inset-0 rounded-full bg-gradient-to-b from-cyan-500 via-blue-600 to-purple-700 animate-pulse"></div>
+                      <div class="absolute inset-2 rounded-full bg-gradient-to-tr from-white/20 to-transparent"></div>
+                    </div>
+                    
+                    {/* 3D Decorative star at bottom right */}
+                    <div class="absolute bottom-2 right-4 z-20 transform -rotate-6">
+                      <svg class="w-10 h-10 text-yellow-300 drop-shadow-lg" fill="currentColor" viewBox="0 0 20 20" style={{filter: 'drop-shadow(0 4px 6px rgba(0,0,0,0.3))'}}>
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
 
           {/* Key Stats Section continues with same background seamlessly */}
           <div className="py-8 max-w-7xl mx-auto px-6 md:px-10">
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4"> 
               {/* Government Colleges */}
               <div className="bg-white/5 backdrop-blur-xl rounded-2xl border border-white/10 p-4 group cursor-pointer hover:bg-white/10 transition-all duration-300 flex items-center gap-3">
                 <div className="h-12 w-12 rounded-full text-white flex items-center justify-center shadow-xl bg-gradient-to-br from-blue-600 to-indigo-600 group-hover:shadow-blue-500/50 group-hover:scale-110 transition-all duration-300 flex-shrink-0">
